@@ -1,20 +1,26 @@
 package edu.icet.service.serviceImpl;
 
 import edu.icet.model.dto.ItemDTO;
+import edu.icet.model.entity.ItemEntity;
+import edu.icet.repositery.ItemRepositery;
 import edu.icet.service.ItemService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class ItemServiceImpl implements ItemService {
 
-    final List<ItemDTO> itemDTOList = new ArrayList<>();
+    final ItemRepositery repositery;
+    final ModelMapper mapper;
 
     @Override
     public void addItem(ItemDTO itemDTO) {
-        itemDTOList.add(itemDTO);
+        repositery.save(mapper.map(itemDTO , ItemEntity.class));
     }
 
     @Override
