@@ -45,11 +45,13 @@ public class CustomerServiceImpl implements CustomerService {
 //                break;
 //            }
 //        }
+
+        repositery.save(mapper.map(customerDTO , CustomerEntity.class));
     }
 
     @Override
     public void deleteCustomer(Integer id) {
-
+        repositery.deleteById(id);
     }
 
     @Override
