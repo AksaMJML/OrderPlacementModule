@@ -4,30 +4,32 @@ import edu.icet.model.Customer;
 import edu.icet.service.CustomerService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    @Override
-    public void addCustomer(Customer customer) {
-        customer.setId(1);
-        customer.setName("Aksa");
-        customer.setEmail("aksa@gmail.com");
-        customer.setPhoneNumber("1234567890");
-        customer.setAddress("123 Main St, City, Country");
-    }
+    private List<Customer> customerList = new ArrayList<>();
 
     @Override
-    public String getCustomer(String name) {
-        return "Aksa";
+    public void addCustomer(Customer customer) {
+        customerList.add(customer);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return List.of(
-                new Customer(1, "Aksa", "aksa@gmail.com", "1234567890", "123 Main St, City, Country")
-                );
+        return customerList;
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        customerList.add(customer);
+    }
+
+    @Override
+    public void deleteCustomer(Integer id) {
+
     }
 
 }
