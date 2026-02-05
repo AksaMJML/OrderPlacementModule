@@ -24,7 +24,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Customer customer) {
-        customerList.add(customer);
+        Integer index = 0;
+        for (Customer customerNew: customerList){
+           if(customer.getId() == customerNew.getId()){
+               customerNew = customer;
+               customerList.set(index , customerNew);
+           }
+           index++;
+        }
     }
 
     @Override
