@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
     @GetMapping("/search-by-id/{id}")
-    public Customer searchCustomer(Integer id){
+    public Customer searchCustomer(@PathVariable Integer id){
       return service.searchCustomer(id);
     }
 

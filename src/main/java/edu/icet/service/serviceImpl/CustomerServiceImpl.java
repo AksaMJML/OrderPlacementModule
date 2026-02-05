@@ -41,7 +41,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer searchCustomer(Integer id) {
-        return customerList.get(id);
+      for (Customer customer : customerList){
+          if (customer.getId().equals(id)){
+              return customer;
+          }
+      }
+      return null;
     }
 
 }
