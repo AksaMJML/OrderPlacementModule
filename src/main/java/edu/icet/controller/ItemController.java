@@ -31,8 +31,8 @@ public class ItemController {
         service.deleteItem(id);
     }
 
-    @GetMapping("/search")
-    public Item searchItem(Integer id){
+    @GetMapping("/search-by-id/{id}")
+    public Item searchItem(@PathVariable Integer id){
         return service.searchItem(id);
     }
 }
