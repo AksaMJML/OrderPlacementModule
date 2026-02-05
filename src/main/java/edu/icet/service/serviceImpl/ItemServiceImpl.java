@@ -34,7 +34,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item searchItem(Integer id) {
-        Item item = itemList.get(id);
-        return item;
+        return itemList.get(id);
     }
 }
