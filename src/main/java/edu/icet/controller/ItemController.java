@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.model.Item;
+import edu.icet.model.dto.ItemDTO;
 import edu.icet.service.ItemService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -17,12 +17,12 @@ public class ItemController {
     final ItemService service;
 
     @PostMapping("/add")
-    public void addItem(@RequestBody Item item){
-        service.addItem(item);
+    public void addItem(@RequestBody ItemDTO itemDTO){
+        service.addItem(itemDTO);
     }
 
     @GetMapping("/get-all")
-    public List<Item> getAllItems(){
+    public List<ItemDTO> getAllItems(){
         return service.getAllItems();
     }
 
@@ -32,7 +32,7 @@ public class ItemController {
     }
 
     @GetMapping("/search-by-id/{id}")
-    public Item searchItem(@PathVariable Integer id){
+    public ItemDTO searchItem(@PathVariable Integer id){
         return service.searchItem(id);
     }
 }

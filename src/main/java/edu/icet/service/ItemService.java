@@ -1,15 +1,15 @@
 package edu.icet.service;
 
-import edu.icet.model.Item;
+import edu.icet.model.dto.ItemDTO;
 
 import java.util.List;
 
 public interface ItemService {
-    void addItem(Item item);
-    void updateItem(Item item);
+    void addItem(ItemDTO itemDTO);
+    void updateItem(ItemDTO itemDTO);
     void deleteItem(Integer id);
-    List<Item> getAllItems();
-    Item searchItem(Integer id);
+    List<ItemDTO> getAllItems();
+    ItemDTO searchItem(Integer id);
 
 
 

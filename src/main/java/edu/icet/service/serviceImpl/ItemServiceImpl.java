@@ -1,7 +1,6 @@
 package edu.icet.service.serviceImpl;
 
-import edu.icet.model.Customer;
-import edu.icet.model.Item;
+import edu.icet.model.dto.ItemDTO;
 import edu.icet.service.ItemService;
 import org.springframework.stereotype.Service;
 
@@ -11,37 +10,37 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-    final List<Item> itemList = new ArrayList<>();
+    final List<ItemDTO> itemDTOList = new ArrayList<>();
 
     @Override
-    public void addItem(Item item) {
-        itemList.add(item);
+    public void addItem(ItemDTO itemDTO) {
+        itemDTOList.add(itemDTO);
     }
 
     @Override
-    public void updateItem(Item item) {
-        for (int i=0; i <itemList.size(); i++){
-            if (itemList.get(i).getId().equals(item.getId()));
-            itemList.set(i , item);
+    public void updateItem(ItemDTO itemDTO) {
+        for (int i = 0; i < itemDTOList.size(); i++){
+            if (itemDTOList.get(i).getId().equals(itemDTO.getId()));
+            itemDTOList.set(i , itemDTO);
             break;
         }
     }
 
     @Override
     public void deleteItem(Integer id) {
-        itemList.remove(id);
+        itemDTOList.remove(id);
     }
 
     @Override
-    public List<Item> getAllItems() {
-        return itemList;
+    public List<ItemDTO> getAllItems() {
+        return itemDTOList;
     }
 
     @Override
-    public Item searchItem(Integer id) {
-        for (Item item : itemList){
-            if (item.getId().equals(id)){
-                return item;
+    public ItemDTO searchItem(Integer id) {
+        for (ItemDTO itemDTO : itemDTOList){
+            if (itemDTO.getId().equals(id)){
+                return itemDTO;
             }
         }
         return null;

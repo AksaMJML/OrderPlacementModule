@@ -1,4 +1,4 @@
-package edu.icet.model;
+package edu.icet.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Item {
+public class CustomerDTO {
     private Integer id;
     private String name;
-    private String code;
-    private String category;
+    private String email;
+    private String phoneNumber;
+    private String address;
 }

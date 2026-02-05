@@ -1,6 +1,6 @@
 package edu.icet.service.serviceImpl;
 
-import edu.icet.model.Customer;
+import edu.icet.model.dto.CustomerDTO;
 import edu.icet.service.CustomerService;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +10,20 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    private List<Customer> customerList = new ArrayList<>();
+    private List<CustomerDTO> customerDTOList = new ArrayList<>();
 
     @Override
-    public void addCustomer(Customer customer) {
-        customerList.add(customer);
+    public void addCustomer(CustomerDTO customerDTO) {
+        customerDTOList.add(customerDTO);
     }
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customerList;
+    public List<CustomerDTO> getAllCustomers() {
+        return customerDTOList;
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
+    public void updateCustomer(CustomerDTO customerDTO) {
 //        Integer index = 0;
 //        for (Customer customerNew: customerList){
 //           if(customer.getId() == customerNew.getId()){
@@ -33,9 +33,9 @@ public class CustomerServiceImpl implements CustomerService {
 //           index++;
 //        }
 
-        for (int i=0; i < customerList.size(); i++){
-            if(customerList.get(i).getId().equals(customer.getId())){
-                customerList.set(i , customer);
+        for (int i = 0; i < customerDTOList.size(); i++){
+            if(customerDTOList.get(i).getId().equals(customerDTO.getId())){
+                customerDTOList.set(i , customerDTO);
                 break;
             }
         }
@@ -43,14 +43,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(Integer id) {
-        customerList.remove(id);
+        customerDTOList.remove(id);
     }
 
     @Override
-    public Customer searchCustomer(Integer id) {
-      for (Customer customer : customerList){
-          if (customer.getId().equals(id)){
-              return customer;
+    public CustomerDTO searchCustomer(Integer id) {
+      for (CustomerDTO customerDTO : customerDTOList){
+          if (customerDTO.getId().equals(id)){
+              return customerDTO;
           }
       }
       return null;

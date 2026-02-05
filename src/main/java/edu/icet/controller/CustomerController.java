@@ -1,10 +1,9 @@
 package edu.icet.controller;
 
-import edu.icet.model.Customer;
+import edu.icet.model.dto.CustomerDTO;
 import edu.icet.service.CustomerService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,18 +17,18 @@ public class CustomerController {
     final CustomerService service;
 
     @PostMapping("/add")
-    public void addCustomer(@RequestBody Customer customer) {
-        service.addCustomer(customer);
+    public void addCustomer(@RequestBody CustomerDTO customerDTO) {
+        service.addCustomer(customerDTO);
     }
 
     @GetMapping("/get")
-    public List<Customer> getAllCustomers() {
+    public List<CustomerDTO> getAllCustomers() {
         return service.getAllCustomers();
     }
 
     @PutMapping("/update")
-    public void updateCustomer(@RequestBody Customer customer) {
-        service.updateCustomer(customer);
+    public void updateCustomer(@RequestBody CustomerDTO customerDTO) {
+        service.updateCustomer(customerDTO);
     }
 
     @DeleteMapping("/delete-by-id/{id}")
@@ -38,7 +37,7 @@ public class CustomerController {
     }
 
     @GetMapping("/search-by-id/{id}")
-    public Customer searchCustomer(@PathVariable Integer id){
+    public CustomerDTO searchCustomer(@PathVariable Integer id){
       return service.searchCustomer(id);
     }
 
