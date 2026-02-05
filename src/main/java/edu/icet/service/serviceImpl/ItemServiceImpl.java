@@ -30,7 +30,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(Integer id) {
-        itemDTOList.remove(id);
+        repositery.deleteById(id);
     }
 
     @Override
