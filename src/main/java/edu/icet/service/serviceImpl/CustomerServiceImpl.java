@@ -56,7 +56,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO searchCustomer(Integer id) {
-      return null;
+        CustomerEntity customerEntity = repositery.findById(id).get();
+        CustomerDTO customerDTO = mapper.map(customerEntity, CustomerDTO.class);
+        return customerDTO;
+
     }
 
 }
