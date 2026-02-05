@@ -17,7 +17,7 @@ public class CustomerController {
     final CustomerService service;
 
     @PostMapping("/add")
-    public void addCustomer(Customer customer) {
+    public void addCustomer(@RequestBody Customer customer) {
         service.addCustomer(customer);
     }
 
@@ -27,7 +27,7 @@ public class CustomerController {
     }
 
     @PutMapping("/update")
-    public void updateCustomer(Customer customer) {
+    public void updateCustomer(@RequestBody Customer customer) {
         service.updateCustomer(customer);
     }
 }
