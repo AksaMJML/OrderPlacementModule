@@ -34,6 +34,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item searchItem(Integer id) {
-        return itemList.get(id);
+        for (Item item : itemList){
+            if (item.getId().equals(id)){
+                return item;
+            }
+        }
+        return null;
     }
 }
