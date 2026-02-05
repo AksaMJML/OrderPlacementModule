@@ -30,4 +30,9 @@ public class ItemController {
     public void deleteItem(@PathVariable Integer id){
         service.deleteItem(id);
     }
+
+    @GetMapping("/search")
+    public Item searchItem(Integer id){
+        return service.searchItem(id);
+    }
 }
