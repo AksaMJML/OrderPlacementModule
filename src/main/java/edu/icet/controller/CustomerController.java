@@ -4,6 +4,7 @@ import edu.icet.model.Customer;
 import edu.icet.service.CustomerService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,4 +36,10 @@ public class CustomerController {
     public void deleteCustomer(Integer id){
          service.deleteCustomer(id);
     }
+
+    @GetMapping("/search-by-id/{id}")
+    public Customer searchCustomer(Integer id){
+      return service.searchCustomer(id);
+    }
+
 }

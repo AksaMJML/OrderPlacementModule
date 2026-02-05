@@ -41,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer searchCustomer(Integer id) {
-        return null;
+        return customerList.get(id);
     }
 
 }
