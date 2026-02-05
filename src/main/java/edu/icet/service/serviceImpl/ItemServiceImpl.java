@@ -35,7 +35,13 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<ItemDTO> getAllItems() {
-        return itemDTOList;
+        List<ItemEntity> itemEntities = repositery.findAll();
+        ArrayList<ItemDTO> itemDTOArrayList = new ArrayList<>();
+        itemEntities.forEach(itemEntity -> {
+            ItemDTO itemDTO = mapper.map(itemEntity, ItemDTO.class);
+            itemDTOArrayList.add(itemDTO);
+        });
+        return itemDTOArrayList;
     }
 
     @Override
