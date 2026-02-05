@@ -30,4 +30,9 @@ public class CustomerController {
     public void updateCustomer(@RequestBody Customer customer) {
         service.updateCustomer(customer);
     }
+
+    @DeleteMapping("/delete-by-id/{id}")
+    public void deleteCustomer(Integer id){
+         service.deleteCustomer(id);
+    }
 }
