@@ -1,25 +1,31 @@
 package edu.icet.service.serviceImpl;
 
 import edu.icet.model.dto.CustomerDTO;
+import edu.icet.model.entity.CustomerEntity;
+import edu.icet.repositery.CustomerRepositery;
 import edu.icet.service.CustomerService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    private List<CustomerDTO> customerDTOList = new ArrayList<>();
+    final CustomerRepositery repositery;
+    final ModelMapper mapper;
 
     @Override
     public void addCustomer(CustomerDTO customerDTO) {
-        customerDTOList.add(customerDTO);
+        repositery.save(mapper.map(customerDTO , CustomerEntity.class));
     }
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        return customerDTOList;
+        return null;
     }
 
     @Override
@@ -33,26 +39,21 @@ public class CustomerServiceImpl implements CustomerService {
 //           index++;
 //        }
 
-        for (int i = 0; i < customerDTOList.size(); i++){
-            if(customerDTOList.get(i).getId().equals(customerDTO.getId())){
-                customerDTOList.set(i , customerDTO);
-                break;
-            }
-        }
+//        for (int i = 0; i < customerDTOList.size(); i++){
+//            if(customerDTOList.get(i).getId().equals(customerDTO.getId())){
+//                customerDTOList.set(i , customerDTO);
+//                break;
+//            }
+//        }
     }
 
     @Override
     public void deleteCustomer(Integer id) {
-        customerDTOList.remove(id);
+
     }
 
     @Override
     public CustomerDTO searchCustomer(Integer id) {
-      for (CustomerDTO customerDTO : customerDTOList){
-          if (customerDTO.getId().equals(id)){
-              return customerDTO;
-          }
-      }
       return null;
     }
 
