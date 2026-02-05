@@ -25,11 +25,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void updateItem(ItemDTO itemDTO) {
-        for (int i = 0; i < itemDTOList.size(); i++){
-            if (itemDTOList.get(i).getId().equals(itemDTO.getId()));
-            itemDTOList.set(i , itemDTO);
-            break;
-        }
+        repositery.save(mapper.map(itemDTO , ItemEntity.class));
     }
 
     @Override
