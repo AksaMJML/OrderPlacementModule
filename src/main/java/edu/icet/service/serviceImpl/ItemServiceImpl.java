@@ -40,11 +40,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO searchItem(Integer id) {
-        for (ItemDTO itemDTO : itemDTOList){
-            if (itemDTO.getId().equals(id)){
-                return itemDTO;
-            }
-        }
-        return null;
+        ItemEntity itemEntity = repositery.findById(id).get();
+        ItemDTO itemDTO = mapper.map(itemEntity, ItemDTO.class);
+        return itemDTO;
     }
 }
