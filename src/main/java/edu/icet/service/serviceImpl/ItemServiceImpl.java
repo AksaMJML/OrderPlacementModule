@@ -1,5 +1,6 @@
 package edu.icet.service.serviceImpl;
 
+import edu.icet.model.Customer;
 import edu.icet.model.Item;
 import edu.icet.service.ItemService;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void updateItem(Item item) {
-
+        for (int i=0; i <itemList.size(); i++){
+            if (itemList.get(i).getId().equals(item.getId()));
+            itemList.set(i , item);
+            break;
+        }
     }
 
     @Override

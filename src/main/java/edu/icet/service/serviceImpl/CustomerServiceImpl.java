@@ -24,13 +24,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Customer customer) {
-        Integer index = 0;
-        for (Customer customerNew: customerList){
-           if(customer.getId() == customerNew.getId()){
-               customerNew = customer;
-               customerList.set(index , customerNew);
-           }
-           index++;
+//        Integer index = 0;
+//        for (Customer customerNew: customerList){
+//           if(customer.getId() == customerNew.getId()){
+//               customerNew = customer;
+//               customerList.set(index , customerNew);
+//           }
+//           index++;
+//        }
+
+        for (int i=0; i < customerList.size(); i++){
+            if(customerList.get(i).getId().equals(customer.getId())){
+                customerList.set(i , customer);
+                break;
+            }
         }
     }
 
